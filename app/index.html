@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>d3_portfolio</title>
+    <title>Ben Rodriguez Resume</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="/bower_components/materialize/bin/materialize.css" />
     <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
     <link rel="stylesheet" href="/bower_components/fullpage.js/dist/jquery.fullpage.css" />
+    <link rel="stylesheet" href="/bower_components/magic/magic.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -29,8 +30,8 @@
     <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="hero-unit">
+
+    <!--<div class="hero-unit">
       <h1>'Allo, 'Allo!</h1>
       <p>You now have</p>
       <ul>
@@ -38,8 +39,81 @@
         <li>Modernizr</li>
         <li>jQuery</li>
       </ul>
-    </div>
-    
+    </div>-->
+    <div id="fullpage">
+      <div class="myName typewriter section">
+        <h1 class="line-1 anim-typewriter">&lt;&#33;&ndash;&ndash;BENJAMIN RODRIGUEZ&ndash;&ndash;&gt;</h1>
+      </div>
+
+      <div class="section education">
+        <div class="slide education_slide">
+          <h2 class="wow fadeInLeftBig">Education</h2>
+
+        </div>
+        <div class="slide">
+          <h2>Skills</h2>
+        </div>
+        <div class="slide tool">
+          <h2>Tools</h2>
+          <button>Draw</button>
+          <div class="graph">
+          <!--  <svg class="chart"></svg>-->
+          </div>
+        </div>
+        <div class="slide">
+          <h2>Contact</h2>
+            <div class="container">
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input id="name" type="text" class="validate">
+                    <label for="name">Name</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="subject" type="text" class="validate">
+                    <label for="subject">Subject</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                  <textarea id="message" class="materialize-textarea"></textarea>
+                  <label for="message">Message</label>
+                </div>
+              </div>
+              <div class="row">
+                <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">Submit
+                 <i class="material-icons right"></i>
+               </button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section skills">
+
+      </div>
+      <!--<div class="section tools" id="tools">
+        <h2>Tools</h2>
+        <div class="graph">-->
+        <!--  <svg class="chart"></svg>-->
+      <!--  </div>
+      </div>
+      <div class="section contact">
+        <h2>Contact</h2>
+      </div>-->
+</div>
+  <div class="footer red darken-1">
+    <p>♥ BenR</p>
+  </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -58,9 +132,10 @@
     <script src="/bower_components/d3/d3.js"></script>
     <script src="/bower_components/fullpage.js/dist/jquery.fullpage.js"></script>
     <script src="/bower_components/scrollreveal/dist/scrollreveal.js"></script>
+    <script src="/bower_components/wow/dist/wow.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->

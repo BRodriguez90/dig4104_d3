@@ -5,10 +5,13 @@
     "jquery": "~2.1.1",
     "modernizr": "~2.8.1",
     "materialize": "^0.98.0",
-    "d3": "v3",
+    "d3": "^4.5.1",
     "animate.css": "^3.5.2",
     "fullpage.js": "^2.9.2",
-    "scrollreveal": "^3.3.2"
+    "scrollreveal": "^3.3.2",
+    "magic": "^1.1.0",
+    "wow": "wow.js#^1.1.2",
+    "material-design-icons": "^3.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
