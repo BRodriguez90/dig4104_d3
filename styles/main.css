@@ -6,8 +6,6 @@
 }
 .magictime {
 -webkit-animation-duration: 2s;
--moz-animation-duration: 2s;
--o-animation-duration: 2s;
 animation-duration: 2s;
 }
 
@@ -65,25 +63,28 @@ button{
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
 }
 
 /* Animation */
 .anim-typewriter{
   -webkit-animation: typewriter 5s steps(44) 2s 1 normal both,
               blinkTextCursor 800ms steps(44) infinite normal;
-  -moz-animation: typewriter 5s steps(44) 2s 1 normal both,
-              blinkTextCursor 800ms steps(44) infinite normal;
-  -ms-animation: typewriter 5s steps(44) 2s 1 normal both,
-              blinkTextCursor 800ms steps(44) infinite normal;
-  -o-animation: typewriter 5s steps(44) 2s 1 normal both,
-              blinkTextCursor 800ms steps(44) infinite normal;
   animation: typewriter 5s steps(44) 2s 1 normal both,
               blinkTextCursor 800ms steps(44) infinite normal;
+}
+@-webkit-keyframes typewriter{
+  from{width: 0;}
+  to{width: 13.3em;}/*24em*/
 }
 @keyframes typewriter{
   from{width: 0;}
   to{width: 13.3em;}/*24em*/
+}
+@-webkit-keyframes blinkTextCursor{
+  from{border-right-color: rgba(0,0,0,.75);}
+  to{border-right-color: transparent;}
 }
 @keyframes blinkTextCursor{
   from{border-right-color: rgba(0,0,0,.75);}
@@ -96,6 +97,7 @@ button{
 div.graph{
   /*margin-top:150px;*/
   padding: 0 10%;
+  -webkit-transition: all ease-in 0.5s;
   transition: all ease-in 0.5s;
 }
 .chart rect{
@@ -104,6 +106,11 @@ div.graph{
   animation-fill-mode: forwards;
   fill:#4da6ff;
   fill:white;*/
+}
+@-webkit-keyframes outline {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 @keyframes outline {
   to {
@@ -202,11 +209,11 @@ div.graph{
 }
 .fp-controlArrow.fp-prev,.fp-controlArrow.fp-next{
 border-color: transparent #000;
+-webkit-transition: all ease-in-out 0.5s;
 transition: all ease-in-out 0.5s;
 }
 .fp-controlArrow.fp-prev:hover,.fp-controlArrow.fp-next:hover{
    border-color: transparent #ABD2FA;
-   -ms-transform:scale(1.3,1.3);
    -webkit-transform:scale(1.3,1.3);
    transform:scale(1.3,1.3);
    box-shadow: transparent transparent 10px 5px #000;
@@ -238,6 +245,9 @@ div.education{
   color:#fff;
   font-family: 'Nixie One', cursive;
 }
+div.ucf-info,div.dsc-info{
+   margin-top:100px;
+}
 
 .education_slide{
   background-image:url(../images/keyboard4.svg);
@@ -266,9 +276,11 @@ button#draw,button#erase{
     color:#000;
     font-weight: bold;
     font-size:17px;
+    -webkit-transition: all ease-in 3.2s;
     transition: all ease-in 3.2s;
 }
 button#erase{
+   -webkit-transition: all ease-in 0.5s;
    transition: all ease-in 0.5s;
 }
 button#erase:hover{
@@ -300,18 +312,62 @@ button#erase:hover{
    to{transform: rotate(-135deg);}
 }*/
 .btnrotate-e{
-   -ms-transform: rotate(-135deg);
    -webkit-transform: rotate(-135deg);
    transform: rotate(-135deg);
 }
 .btnrotate-d{
-   -ms-transform: rotate(170deg);
    -webkit-transform: rotate(170deg);
    transform: rotate(170deg);
 }
 div.contact{
   background-color: #f06a59 !important;
 }
+/* label color */
+  .input-field label {
+    color: #fff;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #fff;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+  .input-field input[type=email]:focus{
+     border-bottom: 1px solid #fff;
+     box-shadow: 0 1px 0 0 #fff;
+ }
+ input[type=email],input[type=text]{
+    border-bottom:2px solid #fff;
+}
+   textarea.materialize-textarea{
+      border-bottom:2px solid #fff;
+   }
+   textarea.materialize-textarea:focus{
+      border-bottom:1px solid #fff;
+   }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #fff;
+  }
 div.page_container{
 
+}
+
+@media only screen and (max-width: 640px) {
+   div.ucf-info,div.dsc-info{
+      margin-top:20px;
+   }
 }

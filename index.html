@@ -10,24 +10,11 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Place favicon.ico in the root directory -->
 
-  <!-- build:css styles/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/materialize/bin/materialize.css" />
-  <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
-  <link rel="stylesheet" href="/bower_components/fullpage.js/dist/jquery.fullpage.css" />
-  <link rel="stylesheet" href="/bower_components/magic/magic.min.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
+  <link rel="stylesheet" href="styles/vendor.css">
 
-  <!-- build:css styles/main.css -->
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild -->
 
-  <!-- build:js scripts/vendor/modernizr.js -->
-  <script src="/bower_components/modernizr/modernizr.js"></script>
-  <!-- endbuild -->
+  <script src="scripts/vendor/modernizr.js"></script>
 </head>
 
 <body>
@@ -45,14 +32,14 @@
         <h2 class="">var Education = </h2>
         <div class="container">
           <div class="row">
-            <div class="col s12 m6 l6">
+            <div class="col s12 m6 l7">
               <div class="ucf-info">
                 <h4>University of Central Florida</h4>
                 <p>Period: 2014-2017</p>
                 <p>BA in Digital Media - Web Design</p>
               </div>
             </div>
-            <div class="col s12 m6 l6">
+            <div class="col s12 m6 l5">
               <div class="dsc-info">
                 <h4>Daytona State College</h4>
                 <p>Period: 2009-2013</p>
@@ -67,6 +54,33 @@
       </div>
       <div class="slide" data-tooltip "Skills" id="skill">
         <h2 class="">var Skills = </h2>
+        <div class="container">
+           <div class="row">
+             <div class="col s6">
+                <h5>UI/UX Design</h5>
+                <img class="responsive-img" src="images/ux.svg" alt="UX/UI">
+             </div>
+             <div class="col s6">
+                <h5>Responsive Design</h5>
+             </div>
+          </div><!-- End row-->
+          <div class="row">
+             <div class="col s6">
+                <h5>Database Management</h5>
+                <img class="responsive-img" src="images/database.svg" alt="Database Management" width="150" height="400">
+             </div>
+             <div class="col s6">
+                <h5>Search Engine Optimization - (SEO)</h5>
+             </div>
+          </div>
+        </div><!-- End container-->
+           <!--UI/UX design</li>
+           <li><img src="images/ux.svg" alt="UX/UI"></li>
+           <li>Responsive Design</li>
+           <li>Database Management</li>
+           <li>Search Engine Optimization</li>
+           <li>Website Maintenance</li>
+        </ul>-->
       </div>
       <div class="slide" data-tooltip "Tools" id="tool">
         <h2>var Tools = </h2>
@@ -80,7 +94,7 @@
         <h2>var Contact = </h2>
         <div class="container">
           <div class="row">
-            <form class="col s12">
+            <form class="col s6">
               <div class="row">
                 <div class="input-field col s6">
                   <input id="name" type="text" class="validate">
@@ -107,8 +121,15 @@
                 <div class="col s12">
                   <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">Submit
                  <i class="material-icons right"></i>
-               </button></ </div>
+               </button>
+               </div>
+            </div>
             </form>
+            <div class="col s6">
+               <h5>Email</h5>
+               <p>bero14@knights.ucf.edu</p>
+               <h5>Phone</h5>
+               <p>(386)555-5555</p>
             </div>
             </div>
           </div>
@@ -146,23 +167,9 @@
       ga('send', 'pageview');
     </script>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <script src="/bower_components/materialize/bin/materialize.js"></script>
-    <script src="/bower_components/d3/d3.js"></script>
-    <script src="/bower_components/fullpage.js/dist/jquery.fullpage.js"></script>
-    <script src="/bower_components/scrollreveal/dist/scrollreveal.js"></script>
-    <script src="/bower_components/wow/dist/wow.js"></script>
-    <script src="/bower_components/d3-tip/index.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+    <script src="scripts/vendor.js"></script>
 
-    <!-- build:js scripts/main.js -->
-    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
     <script src="scripts/main.js"></script>
-    <!-- endbuild -->
 </body>
 
 </html>
