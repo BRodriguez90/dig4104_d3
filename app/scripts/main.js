@@ -24,11 +24,11 @@ $(function() {
      var data = [
       {key: 'HTML', lvl: 9, skill: 'Expert'},
       {key: 'CSS', lvl: 8, skill: 'Pro'},
-      {key: 'JavaScript', lvl: 6, skill: "Now we're talking"},
+      {key: 'JavaScript', lvl: 6, skill: 'Now we\'re talking'},
       {key: 'jQuery', lvl: 5, skill: 'Not too shabby'},
       {key: 'PHP', lvl: 4, skill: 'Not bad'},
       {key: 'mySQL', lvl: 3, skill: 'Noobie'},
-      {key: 'Node.js', lvl: 2, skill: "Needs Work"},
+      {key: 'Node.js', lvl: 2, skill: 'Needs Work'},
       {key: 'd3', lvl: 1 , skill: 'meh'},
       {key: 'Angular2', lvl:2, skill: 'Needs Work'},
       {key: '', lvl: 0, skill: ''},
