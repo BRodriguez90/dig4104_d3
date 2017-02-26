@@ -1,127 +1,126 @@
 <!doctype html>
 <html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ben Rodriguez Resume</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ben Rodriguez Resume</title>
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/materialize/bin/materialize.css" />
-    <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
-    <link rel="stylesheet" href="/bower_components/fullpage.js/dist/jquery.fullpage.css" />
-    <link rel="stylesheet" href="/bower_components/magic/magic.min.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
+  <link rel="stylesheet" href="/bower_components/fullpage.js/dist/jquery.fullpage.css" />
+  <link rel="stylesheet" href="/bower_components/magic/magic.min.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
 
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-    <!--[if IE]>
+  <!-- build:css styles/main.css -->
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+  <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!--<div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Modernizr</li>
-        <li>jQuery</li>
-      </ul>
-    </div>-->
-    <div id="fullpage">
-      <div class="myName typewriter section">
-        <h1 class="line-1 anim-typewriter">&lt;&#33;&ndash;&ndash;BENJAMIN RODRIGUEZ&ndash;&ndash;&gt;</h1>
+  <div id="fullpage">
+    <div class="myName typewriter section" data-tooltip="Home">
+      <h1 class="line-1 anim-typewriter">&lt;&#33;&ndash;&ndash;BENJAMIN RODRIGUEZ&ndash;&ndash;&gt;</h1>
+    </div>
+
+    <div class="section education" data-tooltip="All about me">
+      <div class="slide education_slide" id="education">
+        <h2 class="">var Education = </h2>
       </div>
-
-      <div class="section education">
-        <div class="slide education_slide">
-          <h2 class="wow fadeInLeftBig">Education</h2>
-
+      <div class="slide" data-tooltip"Skills" id="skill">
+        <h2 class="">var Skills = </h2>
+      </div>
+      <div class="slide" data-tooltip"Tools" id="tool">
+        <h2>var Tools = </h2>
+        <button class="" id="draw">Draw</button>
+        <button class="" id="erase">Erase</button>
+        <div class="graph">
+            <svg class="chart"></svg>
         </div>
-        <div class="slide">
-          <h2>Skills</h2>
-        </div>
-        <div class="slide tool">
-          <h2>Tools</h2>
-          <button>Draw</button>
-          <div class="graph">
-          <!--  <svg class="chart"></svg>-->
-          </div>
-        </div>
-        <div class="slide">
-          <h2>Contact</h2>
-            <div class="container">
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input id="name" type="text" class="validate">
-                    <label for="name">Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                  </div>
+      </div>
+      <div class="slide" data-tooltip"Contact" id="contact">
+        <h2>var Contact = </h2>
+        <div class="container">
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="name" type="text" class="validate">
+                  <label for="name">Name</label>
                 </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input id="subject" type="text" class="validate">
-                    <label for="subject">Subject</label>
-                  </div>
+                <div class="input-field col s6">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
                 </div>
-                <div class="row">
-                  <div class="input-field col s12">
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="subject" type="text" class="validate">
+                  <label for="subject">Subject</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
                   <textarea id="message" class="materialize-textarea"></textarea>
                   <label for="message">Message</label>
                 </div>
               </div>
               <div class="row">
-                <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">Submit
+                <div class="col s12">
+                  <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="action">Submit
                  <i class="material-icons right"></i>
-               </button>
-              </div>
+               </button></ </div>
             </form>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="section skills">
-
-      </div>
-      <!--<div class="section tools" id="tools">
+            </div>
+         </div> <!-- Container Closing-->
+      </div> <!-- Slide Closing-->
+        <!-- End Slide Container-->
+        <!--<div class="section tools" id="tools">
         <h2>Tools</h2>
         <div class="graph">-->
         <!--  <svg class="chart"></svg>-->
-      <!--  </div>
+        <!--  </div>
       </div>
       <div class="section contact">
         <h2>Contact</h2>
       </div>-->
-</div>
-  <div class="footer red darken-1">
-    <p>♥ BenR</p>
-  </div>
-
+      </div>
+      <!-- End section Container -->
+    </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+      (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+          function() {
+            (b[l].q = b[l].q || []).push(arguments)
+          });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+      }(window, document, 'script', 'ga'));
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
     </script>
 
     <!-- build:js scripts/vendor.js -->
@@ -133,11 +132,14 @@
     <script src="/bower_components/fullpage.js/dist/jquery.fullpage.js"></script>
     <script src="/bower_components/scrollreveal/dist/scrollreveal.js"></script>
     <script src="/bower_components/wow/dist/wow.js"></script>
+    <script src="/bower_components/d3-tip/index.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
+    <script src="https://d3js.org/d3-ease.v1.min.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-  </body>
+</body>
+
 </html>

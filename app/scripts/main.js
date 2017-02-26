@@ -1,76 +1,133 @@
-console.log('\'Allo \'Allo!');
+//new WOW().init();
 $(function() {
-   new WOW().init();
+
+   var winHeight = $(window).height();
+   function scrollBegin(){
+    window.scrollBy(0,662);
+    console.log(winHeight);
+}
+
+//window.sr = ScrollReveal();
+//sr.reveal('#education');
+   //var check = $(window).scrollTop() + " px";
+
   $('svg').hide();
-$('button').click(function(){
+  $('#erase').click(function(){
+     $('g').fadeOut("2000");//.delay(1000).remove();
+ });
+  $('#draw').click(function(){
+     $('svg').show();
+     var data = [
+      {key: 'HTML', lvl: 9, skill: 'Expert'},
+      {key: 'CSS', lvl: 8, skill: ''},
+      {key: 'JavaScript', lvl: 6, skill: ''},
+      {key: 'jQuery', lvl: 5, skill: ''},
+      {key: 'PHP', lvl: 4, skill: ''},
+      {key: 'mySQL', lvl: 3, skill: ''},
+      {key: 'Node.js', lvl: 2, skill: ''},
+      {key: 'd3', lvl: 1 , skill: 'eh'},
+      {key: 'Angular2', lvl:2, skill: ''},
+      {key: '', lvl: 0, skill: ''},
+      {key: 'Photoshop', lvl: 8, skill: ''},
+      {key: 'Illustrator', lvl: 5, skill: ''},
+      {key: 'Premiere', lvl: 4, skill: ''}
+    ];
 
-  var data = [5, 4, 3, 2, 1, 0.5];
+    var margin = {top: 20, right: 30, bottom: 60, left: 40},
+        width = 1000 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+    //scale
+    var maxData = d3.max(data, function(d) { return d.lvl;});
+    var y = d3.scale.linear()
+        .range([height, 0])
+        .domain([0, d3.max(data, function(d) { return d.lvl;})]);
+    var x = d3.scale.ordinal()
+        .domain(data.map(function(d) {return d.key;}))
+        .rangeBands([0, width]);
+    var color = d3.scale.linear() //Gradient for Bars
+    		.domain([0, maxData])
+    		.range(['#4da6ff','#003366']);
+    var y_names = d3.scale.ordinal()
+    		.domain([0,maxData])
+    		.range([data.skill,data.skill])
+    //Axis
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient('bottom')
+        .ticks(20);
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient('left');
+        //.ticks(7, "test");
 
-  var axisScale = d3.scaleLinear()
-    .domain([0, 100])
-    .range([0, 400]);
+    	 // Tip when hovered
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-15, 0])
+      .html(function(d) {
+         return "<strong style='color:#000'>Level</strong> <span style='color:#C05746'>" + '&#9658; ' + d.skill + "</span>";
+      })
 
-  var maxData = d3.max(data);
+    var chart = d3.select('.chart')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-  var width = 350,
-    barHeight = 70;
+    chart.append('g')
+          .attr('class', 'x axis')
+          .attr('transform', 'translate(0,' + height + ')')
+          .call(xAxis)
+          .selectAll('text')
+          .attr('y', 7)
+          .attr('x', 7)
+          .attr('dy', '.35em')
+          .attr('transform', 'rotate(27)')
+          .style('text-anchor', 'start');;
 
-  var x = d3.scaleLinear()
-    .domain([0, maxData])
-    .rangeRound([0, width]);
+    chart.append('g')
+        .attr('class', 'y axis')
+        .call(yAxis)
+      .append('text')
+        .attr('transform', 'rotate(270)')
+        .attr('y', 6)
+        .attr('dy', '.71em')
+        .attr('font-size', '13px')
+        .style('text-anchor', 'end');
 
-  var color = d3.scaleLinear() //Gradient for Bars
-    .domain([0, maxData])
-    .range(['#4da6ff', '#003366']);
-  /*var stroke = d3.scale.linear()
-      .domain([0, maxData])
-      .range([]);*/
+        //.text("Flaming");
 
-  var chart = d3.select('.graph')
-    .append('svg')
-    .attr('width', width)
-    .attr('height', barHeight * data.length + 100)
-    .style('margin-left', '30%')
-    //.style('margin-bottom', '15%')
-    //.style('margin-top','-100px')
-    .style('transform', 'rotate(270deg)')
-    .style('padding-bottom', '5%');
-  //.style("border","1px solid black");
+    chart.call(tip)
 
-  var svgContainer = chart.select('svg')
-    .append('g')
-  if (svgContainer.empty())
-    svgContainer = d3.select('svg')
-    .append('g').classed('tools', true);
+    chart.selectAll('.bar')
+        .data(data)
+      .enter().append('rect')
+        .attr('class', 'bar')
+        .attr('x', function(d) { return x(d.key); })
+        .attr('y', function(d) { return y(d.lvl); })
+        .attr('height', function(d) { return height - y(d.lvl); }).attr('width', x.rangeBand())
+    	  .attr('width','80px')
+    	  .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+    	 	.style('stroke','black')
+    		.style('stroke-width','2')
+    		.style('opacity','0.9')
+         .style('fill', '#fcb052')
+    		//.style('fill','#4e6096')
+    		//.style("fill", function(d) { return color(d.val);})
+    		.style('stroke-dasharray','1500')
+    		.style('stroke-dashoffset','1600')
+    		.style('animation','outline 5s linear')
+    		.style('animation-fill-mode','forwards');
 
-  var rect = svgContainer.selectAll('g')
-    .data(data)
-    .enter().append('rect')
-    .attr('transform', function(d, i) {
-      return 'translate(0,' + i * barHeight + ')';
-    })
-    .attr('width', x)
-    .attr('height', barHeight - 5) //spacing between bars
-    .style('stroke', 'black')
-    .style('stroke-width', '2.5')
-    .style('opacity', '0.9')
-    .style('fill', '#4c5c68')
-    //.style('fill', function(d) {  return color(d)})
-    .style('stroke-dasharray', '1500')
-    .style('stroke-dashoffset', '1600')
-    .style('animation', 'outline 5s linear')
-    .style('animation-fill-mode', 'forwards');
+    		var t = d3.transition()
+    				.duration(1000)
+    				.ease(d3.easeLinear);
 
-    var t = d3.transition()
-          .duration(1000)
-          .ease(d3.easeLinear);
-
-    //var e = d3.ease("elastic-out-in", 1.2);
-
-      d3.selectAll('rect').transition(t)
-        .style('fill', function(d){ return color(d);})
-        .delay(2970)
-        .style('stroke','none');
+    		 d3.selectAll('rect').transition(t)
+    				.style('fill', function(d){ return color(d.lvl)})
+    				.delay(3450)
+    				.style('stroke','black');
 
     });
 });
@@ -92,7 +149,7 @@ $('button').click(function(){
   // initialize fullPage
   $('#fullpage').fullpage({
 
-    navigation: false,
+    navigation: true,
     onLeave: function(index, nextIndex, direction) {
 
       /**
@@ -107,14 +164,19 @@ $('button').click(function(){
       */
 
       // first animation
-      if( index == 1 && nextIndex == 2 ) {
+      //if( index == 1 && nextIndex == 2 ) {
+      if( index == 1 && direction == 'down' ) {
+         //alert("Going to section 2");
+         $('#education').addClass('magictime spaceInUp');
         $isAnimatedSecond.addClass('animated fadeInUpBig');
         $isAnimatedSecond.eq(0).css('animation-delay', '.3s');
         $isAnimatedSecond.eq(1).css('animation-delay', '.6s');
         $isAnimatedSecond.eq(2).css('animation-delay', '.9s');
         $isAnimatedSecondSingle.addClass('animated rollIn').css('animation-delay', '1.7s');
       }
-
+      if( index == 2 && direction == 'up'){
+         $('#education').removeClass('magictime spaceInUp');
+      }
     /**
       * use the following condition:
       *
@@ -126,7 +188,7 @@ $('button').click(function(){
       */
 
       // second animation
-      else if( ( index == 1 || index == 2 ) && nextIndex == 3 ) {
+       if( ( index == 1 || index == 2 ) && nextIndex == 3 ) {
         $isAnimatedThird.eq(0).addClass('animated fadeInRightBig').css('animation-delay', '.3s');
         $isAnimatedThird.eq(1).addClass('animated fadeInLeftBig').css('animation-delay', '.6s');
         $isAnimatedThirdSingle.addClass('animated bounceInDown').css('animation-delay', '1.2s');
@@ -145,7 +207,7 @@ $('button').click(function(){
       */
 
       // third animation
-      else if( ( index == 1 || index == 2 || index == 3 ) && nextIndex == 4 ) {
+      if( ( index == 1 || index == 2 || index == 3 ) && nextIndex == 4 ) {
         $isAnimatedFourth.addClass('animated zoomIn').css('animation-delay', '.6s');
         $isAnimatedFourthSingle.addClass('animated lightSpeedIn').css('animation-delay', '1.2s');
         $isAnimatedFourthSingle.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
