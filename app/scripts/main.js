@@ -13,24 +13,28 @@ $(function() {
 
   $('svg').hide();
   $('#erase').click(function(){
-     $('g').fadeOut("2000");//.delay(1000).remove();
+     $('g').fadeOut('2000');//.delay(1000).remove();
+     $('#draw').removeClass('btnrotate-d');
+     $(this).toggleClass('btnrotate-e');
  });
   $('#draw').click(function(){
+     $(this).toggleClass('btnrotate-d');
+     $('#erase').removeClass('btnrotate-e');
      $('svg').show();
      var data = [
       {key: 'HTML', lvl: 9, skill: 'Expert'},
-      {key: 'CSS', lvl: 8, skill: ''},
-      {key: 'JavaScript', lvl: 6, skill: ''},
-      {key: 'jQuery', lvl: 5, skill: ''},
-      {key: 'PHP', lvl: 4, skill: ''},
-      {key: 'mySQL', lvl: 3, skill: ''},
-      {key: 'Node.js', lvl: 2, skill: ''},
-      {key: 'd3', lvl: 1 , skill: 'eh'},
-      {key: 'Angular2', lvl:2, skill: ''},
+      {key: 'CSS', lvl: 8, skill: 'Pro'},
+      {key: 'JavaScript', lvl: 6, skill: "Now we're talking"},
+      {key: 'jQuery', lvl: 5, skill: 'Not too shabby'},
+      {key: 'PHP', lvl: 4, skill: 'Not bad'},
+      {key: 'mySQL', lvl: 3, skill: 'Noobie'},
+      {key: 'Node.js', lvl: 2, skill: "Needs Work"},
+      {key: 'd3', lvl: 1 , skill: 'meh'},
+      {key: 'Angular2', lvl:2, skill: 'Needs Work'},
       {key: '', lvl: 0, skill: ''},
-      {key: 'Photoshop', lvl: 8, skill: ''},
-      {key: 'Illustrator', lvl: 5, skill: ''},
-      {key: 'Premiere', lvl: 4, skill: ''}
+      {key: 'Photoshop', lvl: 8, skill: 'Pro'},
+      {key: 'Illustrator', lvl: 5, skill: 'Now we\'re talking'},
+      {key: 'Premiere', lvl: 4, skill: 'Not bad'}
     ];
 
     var margin = {top: 20, right: 30, bottom: 60, left: 40},
@@ -65,7 +69,7 @@ $(function() {
       .attr('class', 'd3-tip')
       .offset([-15, 0])
       .html(function(d) {
-         return "<strong style='color:#000'>Level</strong> <span style='color:#C05746'>" + '&#9658; ' + d.skill + "</span>";
+         return '<strong style=\'color:#000\'>Level</strong> <span style=\'color:#C05746\'>' + '&#9658; ' + d.skill + '</span>';
       })
 
     var chart = d3.select('.chart')
@@ -109,10 +113,11 @@ $(function() {
     	  .attr('width','80px')
     	  .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
-    	 	.style('stroke','black')
+    	 	.style('stroke','#fff')
     		.style('stroke-width','2')
     		.style('opacity','0.9')
-         .style('fill', '#fcb052')
+         .style('fill','transparent')
+         //.style('fill', '#fcb052')
     		//.style('fill','#4e6096')
     		//.style("fill", function(d) { return color(d.val);})
     		.style('stroke-dasharray','1500')
@@ -127,7 +132,7 @@ $(function() {
     		 d3.selectAll('rect').transition(t)
     				.style('fill', function(d){ return color(d.lvl)})
     				.delay(3450)
-    				.style('stroke','black');
+    				.style('stroke','#000');
 
     });
 });

@@ -127,11 +127,11 @@ div.graph{
   .axis line {
     fill: none;
     stroke: #000;
-    shape-renderig: crispEdges;
+    shape-rendering: crispEdges;
   	}
    .axis text {
      font-size: 15px;
-     color:#fff;
+     color:red;
      font-weight:bold;
    }
   	rect.bar:hover{
@@ -266,7 +266,10 @@ button#draw,button#erase{
     color:#000;
     font-weight: bold;
     font-size:17px;
-    transition: all ease-in 0.5s;
+    transition: all ease-in 3.2s;
+}
+button#erase{
+   transition: all ease-in 0.5s;
 }
 button#erase:hover{
    /*-ms-transform: scale(1.2,1.2) rotate(-90deg);
@@ -276,31 +279,36 @@ button#erase:hover{
    -webkit-transform: rotate(-90deg);
    transform: rotate(-90deg);*/
 }
-button#draw:hover{
+/*button#draw:hover{
    animation: drawIt 2500ms steps(60) infinite;
    -webkit-animation: drawIt 2500ms steps(60) infinite;
    -moz-animation: drawIt 2500ms steps(60) infinite;
    -ms-animation: drawIt 2500ms steps(60) infinite;
-}
-button#erase:hover{
+}*/
+/*button#erase:hover{
    animation: eraser 2000ms steps(60) infinite;
    -webkit-animation: eraser 2000ms steps(60) infinite;
    -moz-animation: eraser 2000ms steps(60) infinite;
    -ms-animation: eraser 2000ms steps(60) infinite;
-}
-@keyframes drawIt {
+}*/
+/*@keyframes drawIt {
    from{transform: rotate(0deg);}
    to{transform: rotate(180deg);}
-}
-@keyframes eraser {
+}*/
+/*@keyframes eraser {
    from{transform: rotate(-45deg);}
    to{transform: rotate(-135deg);}
-}
-/*.btnrotate{
-   -ms-transform: rotate(-90deg);
-   -webkit-transform: rotate(-90deg);
-   transform: rotate(-90deg);
 }*/
+.btnrotate-e{
+   -ms-transform: rotate(-135deg);
+   -webkit-transform: rotate(-135deg);
+   transform: rotate(-135deg);
+}
+.btnrotate-d{
+   -ms-transform: rotate(170deg);
+   -webkit-transform: rotate(170deg);
+   transform: rotate(170deg);
+}
 div.contact{
   background-color: #f06a59 !important;
 }
