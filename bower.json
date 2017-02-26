@@ -12,7 +12,10 @@
     "material-design-icons": "^3.0.1",
     "d3-tip": "^0.7.1",
     "d3-ease": "1",
-    "google-fonts": "*"
+    "google-fonts": "*",
+    "d3.tip.v0.6.3": "http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js",
+    "d3-ease.v1.min": "https://d3js.org/d3-ease.v1.min.js",
+    "nixieOne": "https://google-fonts.azurewebsites.net/googleFonts/nixieOne?family=Nixie+One"
   },
   "devDependencies": {
     "chai": "^3.5.0",

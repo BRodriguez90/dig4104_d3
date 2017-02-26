@@ -18,7 +18,14 @@ body {
 }
 
 /*     Custom CSS     */
-
+@font-face {
+   font-family: Cabin Sketch;
+   src: url(../fonts/CabinSketch-Regular.ttf);
+}
+@font-face {
+   font-family: Nixie One;
+   src: url(../fonts/NixieOne-Regular.ttf);
+}
 
 
 /*      Keystroke Animation       */
