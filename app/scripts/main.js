@@ -21,9 +21,12 @@ $(function() {
      $(this).toggleClass('btnrotate-d');
      $('#erase').removeClass('btnrotate-e');
      $('svg').show();
+     drawGraph();
+  });
+     function drawGraph(){
      var data = [
-      {key: 'HTML', lvl: 9, skill: 'Expert'},
-      {key: 'CSS', lvl: 8, skill: 'Pro'},
+      {key: 'HTML', lvl: 9.5, skill: 'Expert'},
+      {key: 'CSS', lvl: 8.5, skill: 'Pro'},
       {key: 'JavaScript', lvl: 6, skill: 'Now we\'re talking'},
       {key: 'jQuery', lvl: 5, skill: 'Not too shabby'},
       {key: 'PHP', lvl: 4, skill: 'Not bad'},
@@ -32,19 +35,20 @@ $(function() {
       {key: 'd3', lvl: 1 , skill: 'meh'},
       {key: 'Angular2', lvl:2, skill: 'Needs Work'},
       {key: '', lvl: 0, skill: ''},
-      {key: 'Photoshop', lvl: 8, skill: 'Pro'},
+      {key: 'Premiere', lvl: 4, skill: 'Not bad'},
       {key: 'Illustrator', lvl: 5, skill: 'Now we\'re talking'},
-      {key: 'Premiere', lvl: 4, skill: 'Not bad'}
+      {key: 'Photoshop', lvl: 8, skill: 'Pro'}
     ];
 
-    var margin = {top: 20, right: 30, bottom: 60, left: 40},
+    var margin = {top: 20, right: 30, bottom: 60, left: 30},
         width = 1000 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
     //scale
     var maxData = d3.max(data, function(d) { return d.lvl;});
     var y = d3.scale.linear()
         .range([height, 0])
-        .domain([0, d3.max(data, function(d) { return d.lvl;})]);
+        .domain([0,10]);
+        //.domain([0, d3.max(data, function(d) { return d.lvl;})]);
     var x = d3.scale.ordinal()
         .domain(data.map(function(d) {return d.key;}))
         .rangeBands([0, width]);
@@ -86,18 +90,22 @@ $(function() {
           .attr('y', 7)
           .attr('x', 7)
           .attr('dy', '.35em')
-          .attr('transform', 'rotate(27)')
-          .style('text-anchor', 'start');;
+          .attr('transform', 'rotate(35)')
+          .attr('font-size', '15px')
+          .style('fill','#fff')
+          .style('text-anchor', 'start');
 
     chart.append('g')
         .attr('class', 'y axis')
+        .style('fill','#fff')
         .call(yAxis)
       .append('text')
         .attr('transform', 'rotate(270)')
         .attr('y', 6)
         .attr('dy', '.71em')
-        .attr('font-size', '13px')
+        .attr('font-size', '15px')
         .style('text-anchor', 'end');
+
 
         //.text("Flaming");
 
@@ -113,10 +121,10 @@ $(function() {
     	  .attr('width','80px')
     	  .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
-    	 	.style('stroke','#fff')
+    	 	.style('stroke','#000')
     		.style('stroke-width','2')
     		.style('opacity','0.9')
-         .style('fill','transparent')
+         .style('fill','none')
          //.style('fill', '#fcb052')
     		//.style('fill','#4e6096')
     		//.style("fill", function(d) { return color(d.val);})
@@ -134,7 +142,7 @@ $(function() {
     				.delay(3450)
     				.style('stroke','#000');
 
-    });
+    }
 });
 
 
