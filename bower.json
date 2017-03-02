@@ -15,7 +15,8 @@
     "google-fonts": "*",
     "d3.tip.v0.6.3": "http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js",
     "d3-ease.v1.min": "https://d3js.org/d3-ease.v1.min.js",
-    "nixieOne": "https://google-fonts.azurewebsites.net/googleFonts/nixieOne?family=Nixie+One"
+    "nixieOne": "https://google-fonts.azurewebsites.net/googleFonts/nixieOne?family=Nixie+One",
+    "icon": "https://fonts.googleapis.com/icon?family=Material+Icons"
   },
   "devDependencies": {
     "chai": "^3.5.0",

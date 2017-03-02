@@ -10,7 +10,23 @@ $(function() {
 //window.sr = ScrollReveal();
 //sr.reveal('#education');
    //var check = $(window).scrollTop() + " px";
-
+ $('body').on('keydown', function(e){
+     if (e.keyCode == 39){
+     //console.log('test');
+     $('.fp-next').css('border-color','transparent #fff'),$('body').on('keyup', function(e){
+        if (e.keyCode == 39){
+           $('.fp-next').css('border-color','');
+        }
+     });
+  }
+  if(e.keyCode == 37){
+     $('.fp-prev').css('border-color','transparent #fff'),$('body').on('keyup', function(e){
+        if (e.keyCode == 37){
+           $('.fp-prev').css('border-color','');
+        }
+     });
+ }
+ });
   $('svg').hide();
   $('#erase').click(function(){
      $('g').fadeOut('2000');//.delay(1000).remove();

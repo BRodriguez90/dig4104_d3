@@ -250,8 +250,8 @@ div.education{
   font-family: 'Nixie One', cursive;
 }
 div.ucf-info,div.dsc-info{
-   margin-top:100px;
-   font-size:1.4em;
+   margin-top:80px;
+   font-size:1.6em;
 }
 
 .education_slide{
@@ -331,45 +331,7 @@ div.contact{
   background-color: #f06a59 !important;
 }
 /* label color */
-  .input-field label {
-    color: #fff;
-  }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: #fff;
-  }
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 0 0 #fff;
-  }
-  .input-field input[type=email]:focus{
-     border-bottom: 1px solid #fff;
-     box-shadow: 0 1px 0 0 #fff;
- }
- input[type=email],input[type=text]{
-    border-bottom:2px solid #fff;
-}
-   textarea.materialize-textarea{
-      border-bottom:2px solid #fff;
-   }
-   textarea.materialize-textarea:focus{
-      border-bottom:1px solid #fff;
-   }
-  /* valid color */
-  .input-field input[type=text].valid {
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 0 0 #fff;
-  }
-  /* invalid color */
-  .input-field input[type=text].invalid {
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 0 0 #fff;
-  }
-  /* icon prefix focus color */
-  .input-field .prefix.active {
-    color: #fff;
-  }
+  
 div.page_container{
 
 }
