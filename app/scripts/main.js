@@ -6,6 +6,7 @@ $(function() {
     window.scrollBy(0,662);
     console.log(winHeight);
 }
+$('.carousel').carousel();
 
 //window.sr = ScrollReveal();
 //sr.reveal('#education');
@@ -27,19 +28,19 @@ $(function() {
      });
  }
  });
-  $('svg').hide();
+  $('.bar').hide();
   $('#erase').click(function(){
-     $('g').fadeOut('2000');//.delay(1000).remove();
+     $('.bar').fadeOut(400);//.delay(1000).remove();
      $('#draw').removeClass('btnrotate-d');
      $(this).toggleClass('btnrotate-e');
  });
   $('#draw').click(function(){
      $(this).toggleClass('btnrotate-d');
      $('#erase').removeClass('btnrotate-e');
-     $('svg').show();
-     drawGraph();
+     $('.bar').fadeIn(4450);
+     drawBars();
   });
-     function drawGraph(){
+    // function drawGraph(){
      var data = [
       {key: 'HTML', lvl: 9.5, skill: 'Expert'},
       {key: 'CSS', lvl: 8.5, skill: 'Pro'},
@@ -48,17 +49,17 @@ $(function() {
       {key: 'PHP', lvl: 4, skill: 'Not bad'},
       {key: 'mySQL', lvl: 3, skill: 'Noobie'},
       {key: 'Node.js', lvl: 2, skill: 'Needs Work'},
-      {key: 'd3', lvl: 1 , skill: 'meh'},
       {key: 'Angular2', lvl:2, skill: 'Needs Work'},
+      {key: 'd3', lvl: 1 , skill: 'meh'},
       {key: '', lvl: 0, skill: ''},
       {key: 'Premiere', lvl: 4, skill: 'Not bad'},
       {key: 'Illustrator', lvl: 5, skill: 'Now we\'re talking'},
       {key: 'Photoshop', lvl: 8, skill: 'Pro'}
     ];
 
-    var margin = {top: 20, right: 30, bottom: 60, left: 30},
+    var margin = {top: 20, right: 30, bottom: 20, left: 30},
         width = 1000 - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        height = 400 - margin.top - margin.bottom;
     //scale
     var maxData = d3.max(data, function(d) { return d.lvl;});
     var y = d3.scale.linear()
@@ -70,7 +71,8 @@ $(function() {
         .rangeBands([0, width]);
     var color = d3.scale.linear() //Gradient for Bars
     		.domain([0, maxData])
-    		.range(['#4da6ff','#003366']);
+         .range(['#ef9a9a','#b71c1c']);
+    		//.range(['#4da6ff','#003366']);
     var y_names = d3.scale.ordinal()
     		.domain([0,maxData])
     		.range([data.skill,data.skill])
@@ -81,8 +83,8 @@ $(function() {
         .ticks(20);
     var yAxis = d3.svg.axis()
         .scale(y)
-        .orient('left');
-        //.ticks(7, "test");
+        .orient('left')
+        .ticks(5);
 
     	 // Tip when hovered
     var tip = d3.tip()
@@ -108,12 +110,12 @@ $(function() {
           .attr('dy', '.35em')
           .attr('transform', 'rotate(35)')
           .attr('font-size', '15px')
-          .style('fill','#fff')
+          .style('fill','#000')
           .style('text-anchor', 'start');
 
     chart.append('g')
         .attr('class', 'y axis')
-        .style('fill','#fff')
+        .style('fill','#000')
         .call(yAxis)
       .append('text')
         .attr('transform', 'rotate(270)')
@@ -121,12 +123,10 @@ $(function() {
         .attr('dy', '.71em')
         .attr('font-size', '15px')
         .style('text-anchor', 'end');
-
-
         //.text("Flaming");
-
     chart.call(tip)
 
+function drawBars(){
     chart.selectAll('.bar')
         .data(data)
       .enter().append('rect')
@@ -155,9 +155,8 @@ $(function() {
 
     		 d3.selectAll('rect').transition(t)
     				.style('fill', function(d){ return color(d.lvl)})
-    				.delay(3450)
+    				.delay(3300)
     				.style('stroke','#000');
-
     }
 });
 
