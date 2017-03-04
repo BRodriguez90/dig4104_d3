@@ -21,7 +21,6 @@
   <!-- endbuild -->
 
   <!-- build:css styles/main.css -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
@@ -38,6 +37,7 @@
   <div id="fullpage">
     <div class="myName typewriter section" data-tooltip="Home">
       <h1 class="line-1 anim-typewriter">&lt;&#33;&ndash;&ndash;BENJAMIN RODRIGUEZ&ndash;&ndash;&gt;</h1>
+      <h2 class="line-2 wd">Web Designer</h2>
     </div>
 
     <div class="section education" data-tooltip="Resume">
@@ -45,14 +45,14 @@
         <h2 class="">var Education = </h2>
         <div class="container">
           <div class="row">
-            <div class="col s12 m6 l7">
+            <div class="col s12 m12 l7">
               <div class="ucf-info">
                 <h4>University of Central Florida</h4>
                 <p>Period: 2014-2017</p>
                 <p>BA in Digital Media - Web Design</p>
               </div>
             </div>
-            <div class="col s12 m6 l5">
+            <div class="col s12 m12 l5">
               <div class="dsc-info">
                 <h4>Daytona State College</h4>
                 <p>Period: 2009-2013</p>
@@ -71,21 +71,21 @@
            <div class="row">
              <div class="col s6">
                 <h5>UI/UX Design</h5>
-                <img class="responsive-img skill-img" src="images/ux.svg" alt="UX/UI">
+                <img class="skill-img anim-img ux" src="images/ux.svg" alt="UX/UI">
              </div>
              <div class="col s6">
                 <h5>Responsive Design</h5>
-                <img class="responsive-img skill-img" src="images/mobile_blue.svg" alt="Phones, Tablets, Computers">
+                <img class="skill-img anim-img resp" src="images/mobile_blue.svg" alt="Phones, Tablets, Computers">
              </div>
           </div><!-- End row-->
           <div class="row">
              <div class="col s6">
                <h5>Database Management</h5>
-                <img class="responsive-img skill-img" src="images/database-icon.png" alt="Database Management" width="150" height="400">
+                <img class="responsive-img anim-img skill-img db" src="images/database-icon.png" alt="Database Management" width="150" height="400">
              </div>
              <div class="col s6">
                 <h5>Search Engine Optimization - (SEO)</h5>
-                <img class="responsive-img skill-img" src="images/seo.svg" alt="Search Engine Optimization">
+                <img class="skill-img anim-img seo" src="images/seo.svg" alt="Search Engine Optimization">
              </div>
           </div>
         </div><!-- End container-->
@@ -109,36 +109,38 @@
                 </div>
                 </div>
                 <div class="row">
-                   <div class="col s12">
-                     <h5>Email</h5>
+                   <div class="col s6 m12 l12">
+                      <img class="responsive-img left-align" src='images/mail.svg' alt='email-icon' width="40" height="25">
+                     <h6>Email</h5>
                      <p class="email">bero14@knights.ucf.edu</p>
                   </div>
-                  </div>
-               <div class="row">
-                  <div class="col s12">
-                     <h5>Phone</h5>
+                  <div class="col s6 m12 l12">
+                  <img class="responsive-img" src='images/smartphone.svg' alt='phone-icon' width="20" height="40">
+                     <h6>Phone</h5>
                      <p class="email">(386)555-5555</p>
                   </div>
                </div>
             </div>
-            <form class="col s12 m6 l7">
+            <!--<div class="col s12 l1">
+            </div>-->
+            <form class="col s12 m6 l6">
               <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s4 m6 l6">
                   <input id="name" type="text" class="validate">
                   <label for="name">Name</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s4 m6 l6">
                   <input id="email" type="text" class="validate">
                   <label for="email">Email</label>
                 </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
+             <!--</div>-->
+              <!--<div class="row">-->
+                <div class="input-field col s4 m12 l12">
                   <input id="subject" type="text" class="validate">
                   <label for="subject">Subject</label>
                 </div>
-              </div>
-              <div class="row">
+              <!--</div>-->
+             <!-- <div class="row">-->
                 <div class="input-field col s12">
                   <textarea id="message" class="materialize-textarea transparent"></textarea>
                   <label for="message">Message</label>
@@ -162,12 +164,12 @@
       <div class="section portfolio" data-tooltip="Portfolio">
          <div class="slide">
             <h2 class="">Portfolio</h2>
-               <div class="carousel">
-                   <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
-                   <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
-                   <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
-                   <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
-                   <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
+               <div class="carousel" id="portfolio">
+                   <a class="carousel-item" href="images/jw_redesign.jpg"><img src="images/jw_redesign.jpg"></a>
+                   <a class="carousel-item" href="images/pj1.jpg"><img src="images/pj1.jpg"></a>
+                   <a class="carousel-item" href="images/ecom.jpg"><img src="images/ecom.jpg"></a>
+                  <!-- <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
+                   <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>-->
                </div>
          </div>
       </div>

@@ -1,12 +1,20 @@
 //new WOW().init();
-$(function() {
+//$(function() {
+   (function($) {
 
+  'use strict';
    var winHeight = $(window).height();
    function scrollBegin(){
     window.scrollBy(0,662);
     console.log(winHeight);
 }
+
+setTimeout(function(){
+   $('.wd').css('display','');
+   $('.wd').fadeIn();
+},8000);
 $('.carousel').carousel();
+$('.materialboxed').materialbox();
 
 //window.sr = ScrollReveal();
 //sr.reveal('#education');
@@ -14,20 +22,23 @@ $('.carousel').carousel();
  $('body').on('keydown', function(e){
      if (e.keyCode == 39){
      //console.log('test');
-     $('.fp-next').css('border-color','transparent #fff'),$('body').on('keyup', function(e){
+     $('.fp-next').css('border-color','transparent #000'),$('body').on('keyup', function(e){
         if (e.keyCode == 39){
            $('.fp-next').css('border-color','');
         }
      });
   }
   if(e.keyCode == 37){
-     $('.fp-prev').css('border-color','transparent #fff'),$('body').on('keyup', function(e){
+     $('.fp-prev').css('border-color','transparent #000'),$('body').on('keyup', function(e){
         if (e.keyCode == 37){
            $('.fp-prev').css('border-color','');
         }
      });
  }
  });
+
+
+ /*******************D3 Graph*********************/
   $('.bar').hide();
   $('#erase').click(function(){
      $('.bar').fadeOut(400);//.delay(1000).remove();
@@ -71,7 +82,8 @@ $('.carousel').carousel();
         .rangeBands([0, width]);
     var color = d3.scale.linear() //Gradient for Bars
     		.domain([0, maxData])
-         .range(['#ef9a9a','#b71c1c']);
+         .range(['#00e6d2','#00665e']);
+         //.range(['#ef9a9a','#b71c1c']);
     		//.range(['#4da6ff','#003366']);
     var y_names = d3.scale.ordinal()
     		.domain([0,maxData])
@@ -150,7 +162,7 @@ function drawBars(){
     		.style('animation-fill-mode','forwards');
 
     		var t = d3.transition()
-    				.duration(1000)
+    				.duration(700)
     				.ease(d3.easeLinear);
 
     		 d3.selectAll('rect').transition(t)
@@ -158,13 +170,11 @@ function drawBars(){
     				.delay(3300)
     				.style('stroke','#000');
     }
-});
+//});
 
 
 /*    Side Nav     */
-    (function($) {
 
-  'use strict';
 
   // variables
   var $isAnimatedSecond = $('.second .is-animated'),
@@ -216,12 +226,16 @@ function drawBars(){
       */
 
       // second animation
-       if( ( index == 1 || index == 2 ) && nextIndex == 3 ) {
+      if( index == 2 && direction == 'down'){
+         $('#portfolio').addClass('magictime spaceInRight')
+      // if( ( index == 1 || index == 2 ) && nextIndex == 3 ) {
         $isAnimatedThird.eq(0).addClass('animated fadeInRightBig').css('animation-delay', '.3s');
         $isAnimatedThird.eq(1).addClass('animated fadeInLeftBig').css('animation-delay', '.6s');
         $isAnimatedThirdSingle.addClass('animated bounceInDown').css('animation-delay', '1.2s');
       }
-
+      if ( index == 1 && nextIndex == 3){
+         $('#portfolio').addClass('magictime spaceInRight')
+      }
 
      /**
       * use the following condition:
