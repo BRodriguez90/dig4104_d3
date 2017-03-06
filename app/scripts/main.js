@@ -1,8 +1,6 @@
-//new WOW().init();
 //$(function() {
    (function($) {
 
-  'use strict';
    var winHeight = $(window).height();
    function scrollBegin(){
     window.scrollBy(0,662);

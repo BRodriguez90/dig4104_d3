@@ -79,7 +79,7 @@ button{
 .wd{
    font-family:'Cabin Sketch';
    display: none;
-   font-size:3rem;
+   font-size:2.6rem;
 }
 .line-2{
 position: relative;
@@ -209,7 +209,8 @@ svg.chart{
   margin-bottom:20% !important;
 }
 #fp-nav ul li a span:hover {
-  background: #ABD2FA;
+  /*background: #ABD2FA;*/
+  background:#000;
 }
 #fp-nav ul li a span, .fp-slidesNav ul li a span{ /*Make side hover nav sq*/
    border-radius: 0px;
@@ -292,6 +293,10 @@ div.skills{
 }
 .skill-img{
    padding-top:15px;
+}
+.db{
+    width:150px;
+     height:400px;
 }
 
 @keyframes animateImg{
@@ -402,9 +407,14 @@ div.contact{
   /*border-bottom: 1px solid #fff;*/
   border-bottom-width: 1.5px;
 }
+div.content-wrapper{
+   margin-top:55px;
+}
 h4.underline{
-   border-bottom:1px solid #fff;
+   border-bottom:1px solid #9e9e9e;
    padding-top:6px;
+   width:auto;
+   text-align:center;
 }
 
 div.page_container{
@@ -415,6 +425,9 @@ div.portfolio{
    text-align: center;
    color:#fff;
    font-family: 'Nixie One', cursive;
+}
+div.carousel-item{
+   border: 1px solid white;
 }
 
 @media only screen and (max-width: 640px) {
@@ -433,6 +446,10 @@ div.portfolio{
    h1{
       font-size:2rem;
    }
+   h2.line-2{
+   font-size:1.5rem;
+   width:auto;
+   }
 
    div.education h2{
       font-size:3rem;
@@ -449,6 +466,18 @@ div.portfolio{
    background-repeat:no-repeat;
    background-position:50% 95%;
    }
+   .skill-img{
+      width:75%;
+      height:70%;
+   }
+   .db{
+      width:50%;
+      height:50%;
+   }
+   /*Contact*/
+   div.content-wrapper{
+      margin-top:55px;
+   }
 }
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 320px) {
 }
