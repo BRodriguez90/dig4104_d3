@@ -264,8 +264,8 @@ div.section{
 
 div.education{
   /*background-color:#4c5c68;*/
-  background-color: #4E6096;
-  /*background-color: #fcb052 !important;*/
+  /*background-color: #4E6096;*/
+  background-color: #5d78ca !important;
   text-align: center;
   color:#fff;
   font-family: 'Nixie One', cursive;
@@ -289,7 +289,7 @@ div.ucf-info,div.dsc-info{
    height:100vh !important;
 }
 div.skills{
-  background-color: #2e5367;
+ /* background-color: #2e5367;*/
 }
 .skill-img{
    padding-top:15px;
@@ -321,7 +321,7 @@ div.skills{
 }
 
 div.tools{
-  background-color: #9e9e9e;
+ /* background-color: #9e9e9e;*/
 }
 
 
@@ -385,10 +385,16 @@ button#erase:hover{
    transform: rotate(170deg);
 }
 div.contact{
-  background-color: #4e6096 !important;
+ /* background-color: #4e6096 !important;*/
 }
 .email{
    letter-spacing: 1.5px;
+}
+div.email-info{
+  padding-top: 10px;
+}
+div.phone-info{
+  padding-top:45px;
 }
 
 /* label color */
@@ -414,6 +420,7 @@ h4.underline{
    border-bottom:1px solid #9e9e9e;
    padding-top:6px;
    width:auto;
+   padding-bottom:15px;
    text-align:center;
 }
 

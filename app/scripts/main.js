@@ -47,64 +47,70 @@ $('.materialboxed').materialbox();
      $(this).toggleClass('btnrotate-d');
      $('#erase').removeClass('btnrotate-e');
      $('.bar').fadeIn(4450);
-     drawBars();
+     drawBars(); //draw the bars on the graph function
   });
     // function drawGraph(){
-     var data = [
+     const data = [
       {key: 'HTML', lvl: 9.5, skill: 'Expert'},
-      {key: 'CSS', lvl: 8.5, skill: 'Pro'},
+      {key: 'CSS', lvl: 8, skill: 'Pro'},
       {key: 'JavaScript', lvl: 6, skill: 'Now we\'re talking'},
       {key: 'jQuery', lvl: 5, skill: 'Not too shabby'},
       {key: 'PHP', lvl: 4, skill: 'Not bad'},
       {key: 'mySQL', lvl: 3, skill: 'Noobie'},
-      {key: 'Node.js', lvl: 2, skill: 'Needs Work'},
-      {key: 'Angular2', lvl:2, skill: 'Needs Work'},
-      {key: 'd3', lvl: 1 , skill: 'meh'},
-      {key: '', lvl: 0, skill: ''},
-      {key: 'Premiere', lvl: 4, skill: 'Not bad'},
+      {key: 'Node.js', lvl: 2, skill: 'Working on it'},
+      {key: 'React', lvl:2, skill: 'Working on it'},
+      {key: 'd3', lvl: 2 , skill: 'Working on it'}
+     /* {key: 'Premiere', lvl: 4, skill: 'Not bad'},
       {key: 'Illustrator', lvl: 5, skill: 'Now we\'re talking'},
-      {key: 'Photoshop', lvl: 8, skill: 'Pro'}
+      {key: 'Photoshop', lvl: 8, skill: 'Pro'}*/
     ];
 
-    var margin = {top: 20, right: 30, bottom: 20, left: 30},
-        width = 1000 - margin.left - margin.right,
+    const margin = {top: 20, right: 30, bottom: 20, left: 30},
+        width = 700 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
     //scale
-    var maxData = d3.max(data, function(d) { return d.lvl;});
-    var y = d3.scale.linear()
+    //const maxData = d3.max(data, function(d) { return d.lvl;});
+    const maxData = d3.max(data, (d) => d.lvl);
+
+    const y = d3.scale.linear()
         .range([height, 0])
         .domain([0,10]);
+
         //.domain([0, d3.max(data, function(d) { return d.lvl;})]);
-    var x = d3.scale.ordinal()
-        .domain(data.map(function(d) {return d.key;}))
+    const x = d3.scale.ordinal() 
+        .domain(data.map((d) => d.key)) //loop through data return key
         .rangeBands([0, width]);
-    var color = d3.scale.linear() //Gradient for Bars
+
+    const color = d3.scale.linear() //Gradient for Bars
     		.domain([0, maxData])
          .range(['#00e6d2','#00665e']);
          //.range(['#ef9a9a','#b71c1c']);
-    		//.range(['#4da6ff','#003366']);
-    var y_names = d3.scale.ordinal()
+        //.range(['#4da6ff','#003366']);
+        
+    const y_names = d3.scale.ordinal()
     		.domain([0,maxData])
-    		.range([data.skill,data.skill])
+        .range([data.skill,data.skill]);
+        
     //Axis
-    var xAxis = d3.svg.axis()
+    const xAxis = d3.svg.axis()
         .scale(x)
         .orient('bottom')
         .ticks(20);
-    var yAxis = d3.svg.axis()
+
+    const yAxis = d3.svg.axis()
         .scale(y)
         .orient('left')
         .ticks(5);
 
     	 // Tip when hovered
-    var tip = d3.tip()
+    const tip = d3.tip()
       .attr('class', 'd3-tip')
-      .offset([-15, 0])
-      .html(function(d) {
-         return '<strong style=\'color:#000\'>Level</strong> <span style=\'color:#C05746\'>' + '&#9658; ' + d.skill + '</span>';
-      })
+      .offset([-20, 0])
+      .html((d) => {
+        return `<strong style="color:#000">Level</strong> <span style="color:#C05746"> &#9658; ${d.skill} </span>`
+      });
 
-    var chart = d3.select('.chart')
+    const chart = d3.select('.chart')
         .attr('width', width + margin.left + margin.right)
         .attr('height', height + margin.top + margin.bottom)
         .append('g')
@@ -118,7 +124,7 @@ $('.materialboxed').materialbox();
           .attr('y', 7)
           .attr('x', 7)
           .attr('dy', '.35em')
-          .attr('transform', 'rotate(35)')
+          .attr('transform', 'rotate(47)')
           .attr('font-size', '15px')
           .style('fill','#000')
           .style('text-anchor', 'start');
@@ -136,15 +142,15 @@ $('.materialboxed').materialbox();
         //.text("Flaming");
     chart.call(tip)
 
-function drawBars(){
+const drawBars= () => { //function that will be called to draw the bargraph
     chart.selectAll('.bar')
         .data(data)
       .enter().append('rect')
         .attr('class', 'bar')
-        .attr('x', function(d) { return x(d.key); })
-        .attr('y', function(d) { return y(d.lvl); })
-        .attr('height', function(d) { return height - y(d.lvl); }).attr('width', x.rangeBand())
-    	  .attr('width','80px')
+        .attr('x', (d) => x(d.key))
+        .attr('y', (d) => y(d.lvl))
+        .attr('height', (d) => height - y(d.lvl)).attr('width', x.rangeBand())
+    	  .attr('width','47px')
     	  .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
     	 	.style('stroke','#000')
@@ -159,12 +165,12 @@ function drawBars(){
     		.style('animation','outline 5s linear')
     		.style('animation-fill-mode','forwards');
 
-    		var t = d3.transition()
+    		var t = d3.transition() //creats the fading in animation once the strokes finish
     				.duration(700)
     				.ease(d3.easeLinear);
 
-    		 d3.selectAll('rect').transition(t)
-    				.style('fill', function(d){ return color(d.lvl)})
+    		 d3.selectAll('rect').transition(t) 
+    				.style('fill', (d) => color(d.lvl))
     				.delay(3300)
     				.style('stroke','#000');
     }
